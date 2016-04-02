@@ -59,7 +59,6 @@ app.get('/api', function api_index(req, res) {
  **********/
 
 app.get('/api/profile', function(req, res) {
-
   db.Profile.find(function (err, profiles) {
     if (err) {
       return console.log(err);
