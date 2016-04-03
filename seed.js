@@ -3,7 +3,7 @@
 
 var db = require('./models');
 
-var myProfile = [{
+var myProfile = {
                 name: "Adriana Villagran",
                 github_link: "https://github.com/AdrianaVillagran",
                 github_profile_image: "https://avatars3.githubusercontent.com/u/17095774?v=3&s=460",
@@ -21,7 +21,7 @@ var myProfile = [{
                    breed: "Domestic Short Hair",
                    alive: false
                   }]
-              }];
+              };
 
 var artwork_list = [
    {

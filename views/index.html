@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Blank</title>
+    <title>Adriana's Fancy Pants App</title>
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -21,9 +21,24 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <h1>Under Construction</h1>
+          <h1>Adriana's Fancy Pants App</h1>
           <h4><a href="/api">Read My API Documentation</a></h4>
         </div>
+        <div id='profileEntry'>
+          <!-- handlebars template -->
+          <script id="profile-template" type="text/x-handlebars-template">
+            <hr>
+            <p>Name: {{profile.0.name}}</p><br>
+            <p>Github Link: {{profile.0.github_link}}</p><br>
+            <p>Current City: {{profile.0.current_city}}</p><br>
+            <p>Pets: {{profile.0.pets.0.name}}</p><br>
+          </script>
+       </div>
+       <div id='artworkEntry'>
+         <!-- handlebars template -->
+         <script id="artwork-template" type="text/x-handlebars-template">
+           
+         </script>
       </div>
     </div>
   </body>

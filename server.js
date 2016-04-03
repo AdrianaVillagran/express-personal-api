@@ -44,12 +44,12 @@ app.get('/api', function api_index(req, res) {
     base_url: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
+      {method: "GET", path: "/api/profile", description: "Data about me"},
       {method: "GET", path: "/api/artworks", description: "Database of all my artpieces"},
       {method: "GET", path: "/api/artworks/:id", description: "Displays specific artwork"},
       {method: "POST", path: "/api/artworks", description: "Request a commission of artwork"},
       {method: "PUT", path: "/api/artworks/:id", description: "Update a request for a commission"},
-      {method: "DELETE", path: "/api/artworks/:id", description: "Delete a commission of artwork"}, // CHANGE ME
+      {method: "DELETE", path: "/api/artworks/:id", description: "Delete a commission of artwork"}, 
     ]
   });
 });
