@@ -106,7 +106,7 @@ app.post('/api/artworks', function(req, res) {
 
 app.delete('/api/artworks/:id', function(req, res) {
   var artworkId = req.params.id;
-  db.Artwork.findOneAndRemove(artworkId, function(err, deletedArtwork) {
+  db.Artwork.findOneAndRemove({_id:artworkId}, function(err, deletedArtwork) {
     if (err) {
       return console.log(err);
     }
@@ -122,9 +122,10 @@ app.put('/api/artworks/:id', function(req, res) {
     }
     foundArtwork.title = req.body.title;
     foundArtwork.medium = req.body.medium;
-    foundArtwork.description = req.body.description;
+    foundArtwork.description = req.body.dimensions;
     foundArtwork.image = req.body.image;
-    foundArtwork.size = req.body.size;
+    foundArtwork.size = req.body.year;
+    foundArtwork.status = req.body.status;
 
     foundArtwork.save(function (err, updatedArtwork) {
       res.status(200).json(updatedArtwork);
