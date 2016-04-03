@@ -8,13 +8,8 @@ var ArtworkSchema = new Schema({
             type: String,
             required: true
           },
-  description:
-          {
-            type: String,
-            required: true
-          },
   image: String,
-  size:
+  dimensions:
         {
           type: String,
           required: true

@@ -27,36 +27,32 @@ var artwork_list = [
    {
      title: "Sweet Tooth",
      medium: "Oil on panel",
-     description: "A surrealistic self-portrait",
      image: "http://www.adrianavillagran.com/uploads/1/5/4/4/15449028/381502.jpg?623",
-     size: "16 x 20 inches",
+     dimensions: "16 x 20 inches",
      year: 2014,
      status: "Sold"
    },
    {
      title: "Sticky Bun",
      medium: "Oil on panel",
-     description: "A representational prograit of an anonymons blonde woman with lollipops woven in her hair.",
      image: "http://www.adrianavillagran.com/uploads/1/5/4/4/15449028/3328036.jpg?585",
-     size: "16 x 20 inches",
+     dimensions: "16 x 20 inches",
      year: 2015,
      status: "Available"
    },
    {
      title: "Shroud",
      medium: "Colored pencil on paper",
-     description: "A portrait of a woman shrouded in pink and blue tulle.",
      image: "http://www.adrianavillagran.com/uploads/1/5/4/4/15449028/3988403.jpg?638",
-     size: "11 x 14 inches",
+     dimensions: "11 x 14 inches",
      year: 2015,
      status: "Sold"
    },
    {
      title: "Under the Rose",
      medium: "Colored pencil on paper",
-     description: "A portrait of a female figure putting a wreath of pink roses over her eyes",
      image: "http://www.adrianavillagran.com/uploads/1/5/4/4/15449028/1167715.jpg?576",
-     size: "12 x 16 inches",
+     dimensions: "12 x 16 inches",
      year: 2015,
      status: "Available"
    }

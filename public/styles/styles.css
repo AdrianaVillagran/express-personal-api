@@ -18,10 +18,18 @@ img {
   margin: 20px;
 }
 
+
+
 .art-info {
-  margin: 30px;
+  margin: 20px 10px 20px 10px;
 }
 
 .profile {
   margin: 30px;
+}
+
+form {
+  background-color:lightgrey;
+  padding: 20px;
+  border-radius: 20px;
 }

@@ -49,7 +49,7 @@ app.get('/api', function api_index(req, res) {
       {method: "GET", path: "/api/artworks/:id", description: "Displays specific artwork"},
       {method: "POST", path: "/api/artworks", description: "Request a commission of artwork"},
       {method: "PUT", path: "/api/artworks/:id", description: "Update a request for a commission"},
-      {method: "DELETE", path: "/api/artworks/:id", description: "Delete a commission of artwork"}, 
+      {method: "DELETE", path: "/api/artworks/:id", description: "Delete a commission of artwork"},
     ]
   });
 });
@@ -90,9 +90,10 @@ app.post('/api/artworks', function(req, res) {
   var newArtwork = new db.Artwork({
     title: req.body.title,
     medium: req.body.medium,
-    description: req.body.description,
     image: req.body.image,
-    size: req.body.size,
+    dimensions: req.body.dimensions,
+    year: req.body.year,
+    status:req.body.status
   });
 
   newArtwork.save(function (err, savedArtwork) {
