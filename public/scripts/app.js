@@ -1,42 +1,41 @@
 console.log("Sanity Check: JS is working!");
 var template;
-var $myProfile;
-var myProfile;
-var profile;
+var $artworkList;
+var allArtworks = [];
 
 
 $(document).ready(function(){
 
-  $myProfile = $('#profileEntry');
-
-  // compile handlebars template
-  var source = $('#profile-template').html();
+  $artworkList = $('#artworkEntry');
+  var source = $('#artwork-template').html();
   template = Handlebars.compile(source);
 
   $.ajax({
     method: 'GET',
-    url: '/api/profile',
+    url: '/api/artworks',
     success: onSuccess,
     error: onError
   });
 
+
 });
 
-function render() {
+
+function renderArtwork() {
 
   // pass myProfile into the template function
-  var profileHtml = template({profile: myProfile});
-  console.log({profile: myProfile});
+  var artworkHtml = template({artworks: allArtworks});
+  console.log({artworks: allArtworks});
 
   // append html to the view
-  $myProfile.append(profileHtml);
-  console.log(profileHtml);
+  $artworkList.append(artworkHtml);
+  console.log(artworkHtml);
 }
 
 function onSuccess(json) {
   console.log(json);
-  myProfile = json;
-  render();
+  allArtworks = json;
+  renderArtwork();
 }
 
 function onError(err) {
