@@ -22,16 +22,41 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <h1>Adriana's Fancy Pants App</h1>
-          <h4><a href="/api">Read My API Documentation</a></h4>
+
         </div>
+        <div id='profileEntry' >
+            <div id='github-image' class="col-sm-3"></div>
+            <div class="col-sm-3">
+              <p id="my-name">Name: </p>
+              <p id="github-link"></p>
+              <p id="current-city">Current City: </p>
+              <p id="pets"></p><br>
+              <h5>Check out my artwork below!</h5>
+              <h5><a href="/api">Read My API Documentation</a></h5>
+
+            </div>
+            <form class="col-sm-4 col-sm-offset-1" id="newArtworkForm">
+              <div class="form-group">
+                <input type="text" class="form-control" name="title" placeholder="Title"
+                <input type="text" class="form-control" name="medium" placeholder="Medium">
+                <input type="text" class="form-control" name="description" placeholder="Description">
+                <input type="text" class="form-control" name="image" placeholder="Image Url">
+                <input type="text" class="form-control" name="size" placeholder="Size">
+              </div>
+              <button type="submit" class="btn btn-default">Add to Gallery</button>
+            </form>
+       </div>
+       <hr class="col-sm-12">
        <div id='artworkEntry'>
          <!-- handlebars template -->
          <script id="artwork-template" type="text/x-handlebars-template">
            {{#each artworks}}
-            <h2>{{title}}</h2>
-            <img src="{{image}}" height="300px">
+           <div class="col-sm-3">
+              <h4 class="text-center">{{title}}</h4>
+              <img src="{{image}}" height="200px" class="img-responsive center-block">
+           </div>
            {{/each}}
-           <hr>
+
          </script>
 
       </div>
