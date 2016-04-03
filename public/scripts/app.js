@@ -52,7 +52,7 @@ function onError(err) {
 
 function renderProfile() {
   // append html to the view
-  $('#github-image').html('<img src="' + myProfile[0].github_profile_image + '" height="100" class="img-responsive">');
+  $('#github-image').html('<img src="' + myProfile[0].github_profile_image + '" height="100" style="border-radius:150px" class="img-responsive">');
   $("#my-name").append(myProfile[0].name);
   $('#github-link').html('<a href="' + myProfile[0].github_link + '">Github Link</a>');
   $('#current-city').append(myProfile[0].current_city);
