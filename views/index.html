@@ -12,39 +12,44 @@
 
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <h1>Chez Moi</h1>
+    <div class="container-fluid header">
+        <div class="row text-center">
+          <h1>Adriana.ly App</h1>
+        </div>
+        <div class="row profile-info">
+            <div id='profileEntry'>
+              <div id='github-image' class="pull-left col-sm-4">
+                        <!-- Github images -->
+              </div>
+              <div class="col-sm-6 ">
+                <p id="my-name">Name: </p>
+                <p id="github-link"></p>
+                <p id="current-city">Current City: </p>
+                <p id="pets"></p><br>
+              </div>
+              <div class="col-sm-6 ">
+                <h5>Feel free to add my art gallery below!</h5>
+                <h5><a href="/api">Read My API Documentation</a></h5>
+              </div>
+
+              <form id="newArtworkForm" class="pull-right form-inline col-sm-8">
+                <div class="form-group">
+                   <input type="text" class="form-control center-block" name="title" placeholder="Title">
+                   <input type="text" class="form-control center-block" name="medium" placeholder="Medium">
+                   <input type="text" class="form-control center-block" name="dimensions" placeholder="Dimensions">
+                   <input type="text" class="form-control center-block" name="image" placeholder="Image Url">
+                   <input type="text" class="form-control center-block" name="year" placeholder="Year">
+                   <input type="text" class="form-control center-block" name="status" placeholder="Status">
+                </div>
+                <button type="submit" class="btn btn-default">Add to Gallery</button>
+              </form>
+      	    </div>
         </div>
       </div>
-        <div class="row">
-          <div id='profileEntry'>
-            <div id='github-image' class="col-sm-2">
-                      <!-- Github images -->
-            </div>
-            <div class="col-sm-3 profile">
-              <p id="my-name">Name: </p>
-              <p id="github-link"></p>
-              <p id="current-city">Current City: </p>
-              <p id="pets"></p><br>
-              <h5>Check out my artwork below!</h5>
-              <h5><a href="/api">Read My API Documentation</a></h5>
-            </div>
 
-            <form id="newArtworkForm" class="form-inline col-sm-6">
-              <div class="form-group">
-                 <input type="text" class="form-control center-block" name="title" placeholder="Title">
-                 <input type="text" class="form-control center-block" name="medium" placeholder="Medium">
-                 <input type="text" class="form-control center-block" name="dimensions" placeholder="Dimensions">
-                 <input type="text" class="form-control center-block" name="image" placeholder="Image Url">
-                 <input type="text" class="form-control center-block" name="year" placeholder="Year">
-                 <input type="text" class="form-control center-block" name="status" placeholder="Status">
-              </div>
-              <button type="submit" class="btn btn-default">Add to Gallery</button>
-            </form>
-          </div>
-       <hr class="col-sm-12">
+    <div class="container">
+
+      <br>
        <div id='artworkEntry'>
          <!-- handlebars template -->
          <script id="artwork-template" type="text/x-handlebars-template">
@@ -52,7 +57,7 @@
               <!-- <div class="row"> -->
               <div class="col-sm-4 col-md-3">
                 <div class="thumbnail artwork" data-id="{{_id}}">
-                  <img src="{{image}}" height="200px">
+                  <img src="{{image}}">
                   <div class="caption">
                     <h3>{{title}}</h3>
                     <p>{{medium}}<br>
