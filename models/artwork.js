@@ -3,17 +3,9 @@ var mongoose = require('mongoose'),
 
 var ArtworkSchema = new Schema({
   title: String,
-  medium:
-          {
-            type: String,
-            required: true
-          },
+  medium: String,
   image: String,
-  dimensions:
-        {
-          type: String,
-          required: true
-        },
+  dimensions: String,
   year: Number,
   status: String
 });
