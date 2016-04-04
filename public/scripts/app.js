@@ -3,7 +3,6 @@ var template;
 var allArtworks = [];
 var $artworkList;
 var myProfile;
-var profile;
 
 
 $(document).ready(function(){

@@ -38,18 +38,17 @@ app.get('/', function homepage(req, res) {
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
-    woops_i_has_forgot_to_document_all_my_endpoints: false, // CHANGE ME ;)
     message: "Welcome to my personal api! Here's what you need to know!",
     documentation_url: "https://github.com/AdrianaVillagran/express_self_api/README.md", // CHANGE ME
     base_url: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"},
-      {method: "GET", path: "/api/artworks", description: "Database of all my artpieces"},
-      {method: "GET", path: "/api/artworks/:id", description: "Displays specific artwork"},
-      {method: "POST", path: "/api/artworks", description: "Request a commission of artwork"},
-      {method: "PUT", path: "/api/artworks/:id", description: "Update a request for a commission"},
-      {method: "DELETE", path: "/api/artworks/:id", description: "Delete a commission of artwork"},
+      {method: "GET", path: "/api/profile", description: "A snippet of data about me"},
+      {method: "GET", path: "/api/artworks", description: "Database of a few recent art pieces I have made"},
+      {method: "GET", path: "/api/artworks/:id", description: "Displays a specific piece of artwork"},
+      {method: "POST", path: "/api/artworks", description: "Creates an additional piece of artwork in the art database"},
+      {method: "PUT", path: "/api/artworks/:id", description: "Updates the parameters of a specific piece of art in the database"},
+      {method: "DELETE", path: "/api/artworks/:id", description: "Deletes an artwork"},
     ]
   });
 });
