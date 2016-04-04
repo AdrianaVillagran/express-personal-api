@@ -34,14 +34,12 @@
 
             <form id="newArtworkForm" class="form-inline col-sm-6">
               <div class="form-group">
-
                  <input type="text" class="form-control center-block" name="title" placeholder="Title">
                  <input type="text" class="form-control center-block" name="medium" placeholder="Medium">
                  <input type="text" class="form-control center-block" name="dimensions" placeholder="Dimensions">
                  <input type="text" class="form-control center-block" name="image" placeholder="Image Url">
                  <input type="text" class="form-control center-block" name="year" placeholder="Year">
                  <input type="text" class="form-control center-block" name="status" placeholder="Status">
-
               </div>
               <button type="submit" class="btn btn-default">Add to Gallery</button>
             </form>
@@ -53,7 +51,7 @@
            {{#each artworks}}
               <!-- <div class="row"> -->
               <div class="col-sm-4 col-md-3">
-                <div class="thumbnail">
+                <div class="thumbnail artwork" data-id="{{_id}}">
                   <img src="{{image}}" height="200px">
                   <div class="caption">
                     <h3>{{title}}</h3>
@@ -61,25 +59,28 @@
                        {{dimensions}}<br>
                        {{year}}<br>
                        {{status}}</p>
-
+                      <button class="btn btn-default delete-artwork" role="button"><span class="glyphicon glyphicon-trash"></button>
                       <button class="btn btn-default"data-toggle="collapse" data-target="#update-{{_id}}" aria-expanded="false" aria-controls="collapseExample">
                         <span class="glyphicon glyphicon-pencil"></span>
                       </button>
                             <!-- form to update todo -->
-                      <div class="collapse" id="update-{{_id}}">
-                       <form class="form-inline .update-artwork">
-                         <div class="form-group">
-                           <input type="text" name="title" class="form-control" placeholder="Title" value="{{title}}">
-                         </div>
-                         <div class="form-group">
-                           <input type="text" name="medium" class="form-control" placeholder="medium" value="{{medium}}">
-                         </div>
-                         <div class="form-group">
-                           <input type="submit" class="btn btn-block btn-default" value="Update">
-                         </div>
+                      <div class="collapse" id="update-{{_id}}" data-id="{{_id}}">
+                        <hr>
+                         <form class="form-inline update-artwork">
+                           <div class="form-group">
+                             <input type="text" name="title" class="form-control" placeholder="Title" value="{{title}}">
+                             <input type="text" name="medium" class="form-control" placeholder="Medum" value="{{medium}}">
+                             <input type="text" name="dimensions" class="form-control" placeholder="Dimensions" value="{{dimensions}}">
+                             <input type="text" name="year" class="form-control" placeholder="Year" value="{{year}}">
+                             <input type="text" name="status" class="form-control" placeholder="Status" value="{{status}}">
+                             <label for="image">Image Url</label>
+                             <input type="text" name="image" class="form-control" placeholder="Image Url" value="{{image}}">
+                           </div>
+                           <div class="form-group">
+                             <input type="submit" class="update-artwork btn btn-block btn-info" value="Update">
+                           </div>
                        </form>
                      </div>
-                    <button class="btn btn-default delete-artwork" data-id="{{_id}}" role="button"><span class="glyphicon glyphicon-trash"></button>
                   </div>
                 </div>
               </div>

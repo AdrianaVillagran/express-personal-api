@@ -57,61 +57,71 @@ $(document).ready(function(){
   });
 
   // for update: submit event on artwork update form
-    $artworkList.on('click', '.update-artwork', function (event) {
+    $artworkList.on('submit', '.update-artwork', function (event) {
+      event.preventDefault();
       console.log('the click is working');
 
-      // // find the todo's id (stored in HTML as `data-id`)
-      // var artworkId = $(this).closest('.artwork').attr('data-id');
-      // console.log(artworkId);
-      //
-      // // find the todo to update by its id
-      // var todoToUpdate = allTodos.filter(function (todo) {
-      //   return todo._id == todoId;
-      // })[0];
-      //
-      // // serialze form data
-      // var updatedTodo = $(this).serialize();
-      //
-      // // PUT request to update todo
-      // $.ajax({
-      //   type: 'PUT',
-      //   url: baseUrl + '/' + todoId,
-      //   data: updatedTodo,
-      //   success: function onUpdateSuccess(json) {
-      //     // replace todo to update with newly updated version (json)
-      //     allTodos.splice(allTodos.indexOf(todoToUpdate), 1, json);
-      //
-      //     // render all todos to view
-      //     render();
-      //   }
-      // });
+      // find the todo's id (stored in HTML as `data-id`)
+      var artworkId = $(this).closest('.artwork').attr('data-id');
+
+      //find artwork by its id
+      var artworkToUpdate;
+      for(var i = 0; i < allArtworks.length; i++) {
+        if(allArtworks[i]._id === artworkId) {
+          artworkToUpdate = allArtworks[i];
+          break;
+        }
+      }
+
+      // serialze form data
+      var updatedArtwork = $(this).serialize();
+      console.log(updatedArtwork);
+
+      // PUT request to update artwork in database
+      $.ajax({
+        type: 'PUT',
+        url: '/api/artworks/' + artworkId,
+        data: updatedArtwork,
+        success:function onUpdateSuccess(json) {
+          // replace artwork to update with newly updated version
+          allArtworks.splice(allArtworks.indexOf(artworkToUpdate), 1, json);
+          console.log('artwork was successfully updated');
+          // render all artworks to view
+          renderArtwork();
+        },
+        error: onUpdateError
+      });
     });
 
 
 });
+/*END OF DOCUMENT READY*/
+
+
 //function to render artwork to view
 function renderArtwork() {
-  //empties existing artwtork from view
+  //empties existing artwork from view
   $artworkList.empty();
 
-  // pass myProfile into the template function
+  // passes artwork data into the template function
   var artworkHtml = template({artworks: allArtworks});
 
   // append html to the view
   $artworkList.append(artworkHtml);
 }
 
-
+//renders index artwork to view on page load
 function onSuccess(json) {
   allArtworks = json;
   renderArtwork();
 }
 
+
 function onError(err) {
   console.log(err);
 }
 
-
+// renders profile info to view on page load
 function renderProfile() {
   // append html to the view
   $('#github-image').html('<img src="' + myProfile[0].github_profile_image + '" height="140" class="img-circle img-responsive">');
@@ -131,12 +141,6 @@ function profileError(err) {
   console.log(err);
 }
 
-
-
-function profileError(err) {
-  console.log(err);
-}
-
 function newArtworkSuccess(json) {
   console.log(json);
   allArtworks.push(json);
@@ -150,7 +154,7 @@ function newArtworkError(err) {
 function deleteArtworkSuccess(json) {
   var artwork = json;
   var artworkId = artwork._id;
-  // find the artwork with the correct ID and remove it from our allBooks array
+  // find the artwork with the correct ID and remove it from allArtworks array
   for(var i = 0; i < allArtworks.length; i++) {
     if(allArtworks[i]._id === artworkId) {
       allArtworks.splice(i, 1);
@@ -161,5 +165,11 @@ function deleteArtworkSuccess(json) {
 }
 
 function deleteArtworkError(err) {
+  console.log(err);
+}
+
+
+
+function onUpdateError(err) {
   console.log(err);
 }
