@@ -50,11 +50,42 @@ $(document).ready(function(){
   $artworkList.on('click', '.delete-artwork', function() {
     $.ajax({
       method: 'DELETE',
-      url: '/api/artworks/' + $(this).closest('.artwork').attr('data-id'),
+      url: '/api/artworks/' + $(this).attr('data-id'),
       success: deleteArtworkSuccess,
       error: deleteArtworkError
     });
   });
+
+  // for update: submit event on artwork update form
+    $artworkList.on('click', '.update-artwork', function (event) {
+      console.log('the click is working');
+
+      // // find the todo's id (stored in HTML as `data-id`)
+      // var artworkId = $(this).closest('.artwork').attr('data-id');
+      // console.log(artworkId);
+      //
+      // // find the todo to update by its id
+      // var todoToUpdate = allTodos.filter(function (todo) {
+      //   return todo._id == todoId;
+      // })[0];
+      //
+      // // serialze form data
+      // var updatedTodo = $(this).serialize();
+      //
+      // // PUT request to update todo
+      // $.ajax({
+      //   type: 'PUT',
+      //   url: baseUrl + '/' + todoId,
+      //   data: updatedTodo,
+      //   success: function onUpdateSuccess(json) {
+      //     // replace todo to update with newly updated version (json)
+      //     allTodos.splice(allTodos.indexOf(todoToUpdate), 1, json);
+      //
+      //     // render all todos to view
+      //     render();
+      //   }
+      // });
+    });
 
 
 });

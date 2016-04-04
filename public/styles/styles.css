@@ -10,14 +10,10 @@ h1 {
   text-align: center;
 }
 
-input {
-  margin: 10px;
-}
 
 img {
   margin: 20px;
 }
-
 
 
 .art-info {
@@ -26,10 +22,4 @@ img {
 
 .profile {
   margin: 30px;
-}
-
-form {
-  background-color:lightgrey;
-  padding: 20px;
-  border-radius: 20px;
 }
