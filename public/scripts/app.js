@@ -25,6 +25,8 @@ $(document).ready(function(){
     error: onError
   });
 
+
+
   $.ajax({
     method: 'GET',
     url: '/api/profile',
@@ -48,12 +50,22 @@ $(document).ready(function(){
   });
 
   $artworkList.on('click', '.delete-artwork', function() {
+    var artworkId = $(this).closest('.artwork').attr('data-id');
     $.ajax({
       method: 'DELETE',
-      url: '/api/artworks/' + $(this).attr('data-id'),
+      url: '/api/artworks/' + artworkId,
       success: deleteArtworkSuccess,
       error: deleteArtworkError
     });
+  });
+
+  //event listeners to animate artwork thumbnails
+  $artworkList.on('mouseenter', '.artwork', function(event) {
+    $(this).css('width', "+=20");
+  });
+
+  $artworkList.on('mouseleave', '.artwork', function(event) {
+    $(this).css('width', "-=20");
   });
 
   // for update: submit event on artwork update form
@@ -94,6 +106,8 @@ $(document).ready(function(){
     });
 
 
+
+
 });
 /*END OF DOCUMENT READY*/
 
@@ -128,7 +142,7 @@ function renderProfile() {
   $("#my-name").append(myProfile[0].name);
   $('#github-link').html('<a href="' + myProfile[0].github_link + '">Github Link</a>');
   $('#current-city').append(myProfile[0].current_city);
-  $('#pets').text('Pets: ' + myProfile[0].pets[0].name + ' the ' + myProfile[0].pets[0].breed);
+  $('#pets').html('<p><b>Pets:</b> ' + myProfile[0].pets[0].name + ' the ' + myProfile[0].pets[0].breed + '</p>');
 }
 
 
